@@ -1,0 +1,37 @@
+# Config pour les tests en local avec l'extension Databricks
+catalog_name: cbcrc_catalog_dev
+schema_name: rc_ian_sandbox
+experiment_name: /Shared/ian-mlops-template-wine-quality-template
+
+dev:
+  catalog_name: cbcrc_catalog_dev
+  schema_name: rc_ian_sandbox
+  experiment_name: /Shared/ian-mlops-template-wine-quality-template
+
+prd:
+  catalog_name: cbcrc_catalog_prod
+  schema_name: rc_ian_sandbox
+  experiment_name: /Shared/ian-mlops-template-wine-quality
+
+parameters:
+  learning_rate: 0.01
+  n_estimators: 100
+  max_depth: 6
+
+num_features:
+  - fixed_acidity
+  - volatile_acidity
+  - citric_acid
+  - residual_sugar
+  - chlorides
+  - free_sulfur_dioxide
+  - total_sulfur_dioxide
+  - density
+  - pH
+  - sulphates
+  - alcohol
+
+cat_features:
+  - type
+
+target: quality

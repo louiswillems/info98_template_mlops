@@ -1,0 +1,24 @@
+exclude: "^(notebooks|scripts)/.*"
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      # Fails if there are any ">>>>>" lines due to merge conflicts (added)
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: detect-private-key # Detects the presence of private key
+      - id: trailing-whitespace
+      - id: forbid-new-submodules
+      - id: check-docstring-first
+      - id: check-merge-conflict
+      - id: check-added-large-files # Avoid to have commited large files in git history forever
+        args: ["--maxkb=500"]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.5
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix, --show-fixes]
+      - id: ruff-format

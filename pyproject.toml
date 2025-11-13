@@ -1,0 +1,66 @@
+[project]
+name = "template-mlops-wine-quality"
+version = "0.1.0"
+description = "IAN MLOps Template Wine quality prediction with Databricks"
+requires-python = ">=3.11, <3.13"
+dependencies = [
+  "mlflow==2.17.0",
+  "cffi==1.17.1",
+  "cloudpickle==3.1.0",
+  "matplotlib==3.9.2",
+  "numpy==1.26.4",
+  "pandas==2.2.3",
+  "psutil==6.0.0",
+  "pyarrow==14.0.1",
+  "scikit-learn==1.5.2",
+  "scipy==1.14.1",
+  "databricks-feature-engineering==0.6",
+  "databricks-feature-lookup==1.2.0",
+  "databricks-sdk==0.32.0",
+  "pydantic==2.9.2",
+  "loguru==0.7.3",
+]
+
+
+[project.optional-dependencies]
+dev = [
+  "databricks-connect>=15.4.1, <16",
+  "ipykernel>=6.29.5, <7",
+  "pip>=24.2",
+  "pre-commit>=4.1.0, <5",
+]
+
+[build-system]
+requires = ["setuptools>=72.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["wine_quality*"]
+
+[tool.ruff]
+line-length = 120
+select = [
+  "F",   # pyflakes rules
+  "E",   # pycodestyle error rules
+  "W",   # pycodestyle warning rules
+  "B",   # flake8-bugbear rules
+  "I",   # isort rules
+  "N",   # pep8-namingn (added)
+  "SIM", # flake8-simplify (added)
+  "ERA", # eradicate (commented out code) (added)
+  "ANN", # flake8-annotations (type annotations) (type annotations)
+]
+ignore = [
+  "E501",   # line-too-long
+  "ANN401", # any-type (allows Any usage)
+]
+
+[tool.ruff.format]
+indent-style = "space"
+
+
+# [tool.mypy] (added)
+# python_version = "3.11"
+# warn_return_any = true
+# warn_unused_configs = true
