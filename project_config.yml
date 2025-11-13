@@ -1,15 +1,15 @@
 # Config pour les tests en local avec l'extension Databricks
-catalog_name: cbcrc_catalog_dev
+catalog_name: workspace
 schema_name: rc_ian_sandbox
 experiment_name: /Shared/ian-mlops-template-wine-quality-template
 
 dev:
-  catalog_name: cbcrc_catalog_dev
+  catalog_name: workspace
   schema_name: rc_ian_sandbox
   experiment_name: /Shared/ian-mlops-template-wine-quality-template
 
 prd:
-  catalog_name: cbcrc_catalog_prod
+  catalog_name: workspace
   schema_name: rc_ian_sandbox
   experiment_name: /Shared/ian-mlops-template-wine-quality
 

@@ -2,7 +2,7 @@
 
 ## Configuration de l'environnement
 
-Ce projet utilise le runtime Databricks 15.4 LTS, qui s'appuie sur Python 3.11 pour assurer une compatibilité optimale et une stabilité à long terme.
+Ce projet utilise Databricks 15.4 LTS, qui s'appuie sur Python 3.11 pour assurer une compatibilité optimale et une stabilité à long terme.
 
 
 Dans nos exemples, nous utilisons UV comme gestionnaire de paquets. Consultez la documentation pour l'installation : https://docs.astral.sh/uv/getting-started/installation/
@@ -55,12 +55,3 @@ project/
 ## Développement et Déploiement
 
 Cette architecture permet un développement hybride où les notebooks facilitent le test local avec une connexion Databricks distante (extension Databricks), tandis que les scripts assurent l'exécution automatisée en production via des workflows Databricks orchestrés avec Databricks Assets Bundles (DABs).
-
-
-## Guides Complémentaires
-
-**📋 [Guide des Premiers Pas (cliquer ici)](https://cbcradiocanada.atlassian.net/wiki/spaces/MNBI/pages/5113807122/Premiers+Pas)**
-Documentation complète couvrant l'installation de VS Code, la configuration Python avec UV, Git, les standards de qualité de code, et le développement local pour Databricks.
-
-**🚀 [Guide MLOps et Databricks Asset Bundles (cliquer ici)](https://cbcradiocanada.atlassian.net/wiki/spaces/MNBI/pages/5113708738/Pratiques+MLOps)**
-Guide spécialisé explorant en profondeur la plateforme Databricks pour MLOps, l'utilisation de MLflow et les bonnes pratiques de déploiement avec les Databricks Asset Bundles (DABs).
