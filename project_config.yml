@@ -1,17 +1,17 @@
 # Config pour les tests en local avec l'extension Databricks
 catalog_name: workspace
-schema_name: rc_ian_sandbox
-experiment_name: /Shared/ian-mlops-template-wine-quality-template
+schema_name: prod
+experiment_name: /Shared/info98_mlops_2025
 
 dev:
   catalog_name: workspace
-  schema_name: rc_ian_sandbox
-  experiment_name: /Shared/ian-mlops-template-wine-quality-template
+  schema_name: dev
+  experiment_name: /Shared/info98_mlops_2025
 
 prd:
   catalog_name: workspace
-  schema_name: rc_ian_sandbox
-  experiment_name: /Shared/ian-mlops-template-wine-quality
+  schema_name: prod
+  experiment_name: /Shared/info98_mlops_2025
 
 parameters:
   learning_rate: 0.01
