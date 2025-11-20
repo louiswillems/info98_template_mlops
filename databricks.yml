@@ -29,7 +29,7 @@ targets:
     variables:
       schedule_pause_status: PAUSED
 
-  prd:
+  prod:
     workspace:
       host: https://dbc-dee5f2cc-5b44.cloud.databricks.com/
       root_path: /Shared/.bundle/prod

@@ -1,11 +1,7 @@
 # Databricks notebook source
-# MAGIC %pip install ../dist/wine_quality-0.0.1-py3-none-any.whl
+# MAGIC # %pip install /Workspace/Shared/.bundle/prod/artifacts/.internal/template_mlops_wine_quality-0.1.1-py3-none-any.whl
 # MAGIC %pip install loguru
-
-# COMMAND ----------
-# dbutils.library.restartPython()  # noqa: ERA001
-# COMMAND ----------x
-
+# MAGIC %%restart_python
 import mlflow
 from pyspark.sql import SparkSession
 
@@ -13,8 +9,8 @@ from wine_quality.config import ProjectConfig, Tags
 from wine_quality.models.custom_model import CustomModel
 
 # Select prod or dev profile
-mlflow.set_tracking_uri("databricks://dev")
-mlflow.set_registry_uri("databricks-uc://dev")
+mlflow.set_tracking_uri("databricks")
+mlflow.set_registry_uri("databricks-uc")
 
 print(mlflow.get_tracking_uri())
 
@@ -23,10 +19,16 @@ spark = SparkSession.builder.getOrCreate()
 tags = Tags(**{"git_sha": "abcd12345", "branch": "example_de_branch"})
 
 # COMMAND ----------
-# Initialize model with the config path
+# Initialize model with the config path ou en local
+# custom_model = CustomModel(
+#     config=config, tags=tags, spark=spark, code_paths=[
+#         "../dist/wine_quality-0.1.0-py3-none-any.whl"]
+# )
+
+# Seulement avec NOTEBOOK
 custom_model = CustomModel(
     config=config, tags=tags, spark=spark, code_paths=[
-        "../dist/wine_quality-0.1.0-py3-none-any.whl"]
+        "/Workspace/Shared/.bundle/prod/artifacts/.internal/template_mlops_wine_quality-0.1.1-py3-none-any.whl"]
 )
 
 # COMMAND ----------

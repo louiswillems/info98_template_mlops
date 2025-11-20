@@ -8,7 +8,7 @@ dev:
   schema_name: dev
   experiment_name: /Shared/info98_mlops_2025
 
-prd:
+prod:
   catalog_name: workspace
   schema_name: prod
   experiment_name: /Shared/info98_mlops_2025

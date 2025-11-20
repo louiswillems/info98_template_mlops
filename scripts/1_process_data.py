@@ -1,6 +1,16 @@
-"""
-This module handles
-"""
+
+# COMMAND ----------
+# # %pip install /Workspace/Shared/.bundle/prod/artifacts/.internal/template_mlops_wine_quality-0.1.1-py3-none-any.whl
+# COMMAND ----------
+# %restart_python
+# COMMAND ----------
+# %pip list
+# COMMAND ----------
+# NE PAS UTILISER
+# from pathlib import Path
+# import sys
+# sys.path.append(str(Path.cwd().parent / 'src'))
+# COMMAND ----------
 import argparse
 
 import yaml

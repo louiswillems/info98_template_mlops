@@ -57,9 +57,9 @@ class CustomModel:
         Target (y_train, y_test)
         """
         logger.info("🔄 Loading data from Databricks tables...")
-        self.train_set_spark = self.spark.table(f"{self.catalog_name}.{self.schema_name}.train_set")
+        self.train_set_spark = self.spark.table(f"{self.catalog_name}.{self.schema_name}.wine_quality_template_train_set")
         self.train_set = self.train_set_spark.toPandas()
-        self.test_set = self.spark.table(f"{self.catalog_name}.{self.schema_name}.test_set").toPandas()
+        self.test_set = self.spark.table(f"{self.catalog_name}.{self.schema_name}.wine_quality_template_test_set").toPandas()
         self.data_version = "0"  # describe history -> retrieve
 
         self.X_train = self.train_set[self.num_features + self.cat_features]
@@ -124,11 +124,11 @@ class CustomModel:
             mlflow.log_metric("r2_score", r2)
 
             # Log the model
-            signature = infer_signature(model_input=self.X_train, model_output={"prediction": 2.0})
+            signature = infer_signature(model_input=self.X_train, model_output=self.pipeline.predict(self.X_train))
 
             dataset = mlflow.data.from_spark(
                 self.train_set_spark,
-                table_name=f"{self.catalog_name}.{self.schema_name}.train_set",
+                table_name=f"{self.catalog_name}.{self.schema_name}.wine_quality_template_train_set",
                 version=self.data_version,
             )
             mlflow.log_input(dataset, context="training")
