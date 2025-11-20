@@ -49,7 +49,7 @@ custom_model.log_model()
 run_id = mlflow.search_runs(
     experiment_names=["/Shared/wine-quality-template"]).run_id[0]
 # Loading custom model
-model = mlflow.pyfunc.load_model(f"runs:/{run_id}/custom-wine-quality-model")
+model = mlflow.pyfunc.load_model(f"runs:/{run_id}/ian-mlops-template-custom-wine-quality-model")
 
 # COMMAND ----------
 custom_model.retrieve_current_run_dataset()
