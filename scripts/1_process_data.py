@@ -21,21 +21,6 @@ from wine_quality.config import ProjectConfig
 from wine_quality.data_processor import DataProcessor
 
 parser = argparse.ArgumentParser()
-parser.add_argument(
-    "--root_path",
-    action="store",
-    default=None,
-    type=str,
-    required=True,
-)
-
-parser.add_argument(
-    "--env",
-    action="store",
-    default=None,
-    type=str,
-    required=True,
-)
 
 args = parser.parse_args()
 root_path = args.root_path
@@ -65,6 +50,7 @@ data_processor.preprocess()
 
 # Split the data
 X_train, X_test = data_processor.split_data()
+
 logger.info("Training set shape: %s", X_train.shape)
 logger.info("Test set shape: %s", X_test.shape)
 

@@ -12,45 +12,6 @@ mlflow.set_tracking_uri("databricks")
 mlflow.set_registry_uri("databricks-uc")
 
 parser = argparse.ArgumentParser()
-parser.add_argument(
-    "--root_path",
-    action="store",
-    default=None,
-    type=str,
-    required=True,
-)
-# Add the missing arguments
-parser.add_argument(
-    "--git_sha",
-    action="store",
-    default="unknown",
-    type=str,
-    required=False,
-)
-parser.add_argument(
-    "--branch",
-    action="store",
-    default="unknown",
-    type=str,
-    required=False,
-)
-parser.add_argument(
-    "--job_run_id",
-    action="store",
-    default="unknown",
-    type=str,
-    required=False,
-)
-
-parser.add_argument(
-    "--env",
-    action="store",
-    default="prd",
-    type=str,
-    help="Environment (dev, acc, prd)",
-    required=False,
-)
-
 args = parser.parse_args()
 root_path = args.root_path
 config_path = f"{root_path}/files/project_config.yml"

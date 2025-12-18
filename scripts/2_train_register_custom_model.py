@@ -13,47 +13,6 @@ mlflow.set_tracking_uri("databricks")
 mlflow.set_registry_uri("databricks-uc")
 
 parser = argparse.ArgumentParser()
-parser.add_argument(
-    "--root_path",
-    action="store",
-    default=None,
-    type=str,
-    required=True,
-)
-
-parser.add_argument(
-    "--env",
-    action="store",
-    default=None,
-    type=str,
-    required=True,
-)
-
-parser.add_argument(
-    "--git_sha",
-    action="store",
-    default=None,
-    type=str,
-    required=True,
-)
-
-# MLFlow
-parser.add_argument(
-    "--job_run_id",
-    action="store",
-    default=None,
-    type=str,
-    required=True,
-)
-
-parser.add_argument(
-    "--branch",
-    action="store",
-    default=None,
-    type=str,
-    required=True,
-)
-
 
 args = parser.parse_args()
 root_path = args.root_path
@@ -64,13 +23,9 @@ config = ProjectConfig.from_yaml(config_path=config_path)
 spark = SparkSession.builder.getOrCreate()
 dbutils = DBUtils(spark)
 
-tags_dict = {"git_sha": args.git_sha,
-             "branch": args.branch, "job_run_id": args.job_run_id}
-tags = Tags(**tags_dict)
 
 # Initialize Custom model
-custom_model = CustomModel(config=config, tags=tags,
-                           spark=spark, code_paths=[])
+custom_model = CustomModel(config=config, spark=spark, code_paths=[])
 # custom_model = CustomModel(config=config, tags=tags, spark=spark, code_paths=[f"{args.root_path}/artifacts/.internal/wine_quality-0.0.1-py3-none-any.whl"])
 logger.info("Model initialized.")
 

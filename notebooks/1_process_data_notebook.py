@@ -20,6 +20,7 @@ from wine_quality.data_processor import DataProcessor
 config = ProjectConfig.from_yaml(
     config_path="../project_config.yml", env="dev")
 
+
 print("Configuration loaded:")
 print(yaml.dump(config, default_flow_style=False))
 
