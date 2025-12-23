@@ -2,7 +2,6 @@
 bundle:
   name: template_mlops
 
-# IMPORTANT : Community Edition ne supporte pas les artifacts de type whl
 artifacts:
   default:
     type: whl

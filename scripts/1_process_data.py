@@ -32,7 +32,6 @@ config = ProjectConfig.from_yaml(config_path=CONFIG_PATH)
 logger.info("Configuration loaded:")
 logger.info(yaml.dump(config, default_flow_style=False))
 
-
 # Load the house prices dataset
 spark = SparkSession.builder.getOrCreate()
 

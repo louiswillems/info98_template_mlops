@@ -29,14 +29,5 @@ jobs:
 
       - name: Deploy to Databricks (Production)
         run: |
-          # J'ai remplacé la variable matrix par "prd" en dur
-          databricks bundle deploy -t prd \
-            --var="git_sha=${{ github.sha }}" \
-            --var="branch=${{ github.ref_name }}"
-
-      - name: Create Git Tag
-        # Plus besoin de condition "if", car ce job est toujours pour la prod
-        run: |
-          VERSION=$(cat version.txt)
-          git tag $VERSION || true 
-          git push origin $VERSION || true
+          # J'ai remplacé la variable matrix par "prod" en dur
+          databricks bundle deploy -t prod

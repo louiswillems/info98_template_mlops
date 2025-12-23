@@ -24,7 +24,6 @@ tags = Tags(**{"git_sha": "abcd12345", "branch": "example_de_branch"})
 #     config=config, tags=tags, spark=spark, code_paths=[
 #         "../dist/wine_quality-0.1.0-py3-none-any.whl"]
 # )
-
 # Seulement avec NOTEBOOK
 custom_model = CustomModel(
     config=config, tags=tags, spark=spark, code_paths=[

@@ -57,9 +57,13 @@ class CustomModel:
         Target (y_train, y_test)
         """
         logger.info("🔄 Loading data from Databricks tables...")
-        self.train_set_spark = self.spark.table(f"{self.catalog_name}.{self.schema_name}.wine_quality_template_train_set")
+        self.train_set_spark = self.spark.table(
+            f"{self.catalog_name}.{self.schema_name}.wine_quality_template_train_set"
+        )
         self.train_set = self.train_set_spark.toPandas()
-        self.test_set = self.spark.table(f"{self.catalog_name}.{self.schema_name}.wine_quality_template_test_set").toPandas()
+        self.test_set = self.spark.table(
+            f"{self.catalog_name}.{self.schema_name}.wine_quality_template_test_set"
+        ).toPandas()
         self.data_version = "0"  # describe history -> retrieve
 
         self.X_train = self.train_set[self.num_features + self.cat_features]
